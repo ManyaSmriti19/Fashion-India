@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>HOME-PAGE</title>
+<link rel="stylesheet" type="text/css" href="explore.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.c
+ss"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJ
+lSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.9.0/css/all.css">
+<script
+src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></scri
+pt>
+<link href="css/refreshform.css" rel="stylesheet">
+<script src="js/refreshform.js"></script>
+</head>
+<body>
+<?php
+function show($r,$d)
+{
+$q="<a href='$r' target='frame'><img src=$d height='60%' width='60%'>";
+return $q;
+}
+function price($e)
+{
+return "At a special price of Rs $e..click to shop";
+}
+echo "<h2 align='center'><b>GRAB UR DEAL!!!</b><h2><br><br>";
+echo "<h4 align='center'>Here is the best today's deal of ur
+choice...<br><br></h4>";
+echo "<form action='best_sale.php' method='POST' >";
+$a=array("c6.jpg","c41.jpg","clothes1.jpg","bold.jpg","c51.jpg");
+$b=array("skirt","shoe","1piece","lipstick","belt");
+$host=array("kurtis.php","access.php","clothes.php","trends.php","kurtis.php")
+;
+$p=array(1700,2500,1300,199,300);
+echo "<p align='center'><select name='choose'>";
+echo "<option selected='yes'>Choose</option>";
+for($i=0;$i<count($a);$i++)
+{
+echo "<option name='$a[$i]'>$b[$i]";
+}
+echo "<input type='submit' name='submit' value='Check'><br><br>";
+if(isset($_POST['submit']))
+{
+for($i=0;$i<count($a);$i++)
+{
+if($_POST['choose']==$b[$i])
+{
+$g=price($p[$i]);
+$f= show($host[$i],$a[$i]);
+echo "<p align='center'><b>".$g;
+echo "<br>$f";
+}
+}
+}
+?>
+</body>
+</html>
