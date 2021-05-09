@@ -1,0 +1,20 @@
+<html>
+<head>
+<title>HOME-PAGE</title>
+<link rel="stylesheet" type="text/css" href="explore.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.c
+ss"
+integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJ
+lSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fontawesome/5.9.0/css/all.css">
+</head>
+<frame>
+<frameset cols="18%,85%">
+<frameset rows="18%,*">
+<frame src="sales.php" frameborder="0">
+<frame src="check.php" name="frame1" frameborder="0"></frame>
+</frameset>
+<frame name="right" frameborder="0"></frame>
+</frameset>
+</frame>
+</html>
