@@ -1,0 +1,556 @@
+<?php
+session_start();
+$user=1;
+if(empty($_SESSION)){
+$user=0;
+}
+else{
+$_SESSION['timeout']=time();
+$inactive = 600;
+$session_life = time() - $_SESSION['timeout'];
+if($session_life > $inactive)
+{ session_destroy(); header("Location: login.php"); }
+}
+?>
+<html lang="en" xmlns:og="http://ogp.me/ns#"><head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700"
+rel="stylesheet">
+<title>Dashboard</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-aw
+esome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.mi
+n.css"
+integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFe
+WPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFA
+V0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script
+src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3U
+ksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script
+src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js
+"
+integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0U
+od8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://bam.nr-data.net/1/bd3303fecd?a=3468936&amp;v=1167.2a454
+6b&amp;to=IllfFhMLDl5XFBhRVRJCWBQACBEdQQ5YQA%3D%3D&amp;rst=
+4127&amp;ref=https://filmfreeway.com/HollywoodIndependentFilmmakerA
+wards&amp;ap=47&amp;be=2763&amp;fe=3984&amp;dc=3045&amp;af=e
+rr,xhr,stn,ins&amp;perf=%7B%22timing%22:%7B%22of%22:1587093809317, %22n%22:0,%22u%22:2669,%22ue%22:2683,%22f%22:3,%22dn%22:3,%22dn
+e%22:3,%22c%22:3,%22ce%22:3,%22rq%22:259,%22rp%22:992,%22rpe%22:
+2647,%22dl%22:2706,%22di%22:3003,%22ds%22:3045,%22de%22:3062,%22
+dc%22:3981,%22l%22:3982,%22le%22:4000%7D,%22navigation%22:%7B%7
+D%7D&amp;fp=3001&amp;fcp=3001&amp;jsonp=NREUM.setToken"></scr
+ipt><script
+src="https://js-agent.newrelic.com/nr-1167.min.js"></script><script
+type="text/javascript" async="" src="https://www.googleadservices.com/pagead/conversion_async.js"></scr
+ipt><script async="" src="//www.google-analytics.com/analytics.js"></script><script
+type="text/javascript" async="" src="https://www.gstatic.com/recaptcha/releases/zItNOfzbrqVGbb4QFYpPpc
+rw/recaptcha__en.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+<meta property="og:site_name" content="FilmFreeway">
+<meta property="og:title" content="Hollywood Independent Filmmaker
+Awards and Festival">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://filmfreeway.com/HollywoodIndependentFilmmakerAwards" >
+<meta property="og:image" content="https://storage.googleapis.com/ff-storage-p01/festivals/logos/000
+/024/099/large/HFB1.jpg?1487210546">
+<meta property="og:image:width" content="330">
+<meta property="og:image:height" content="330">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@filmfreeway">
+<meta name="twitter:title" content="Hollywood Independent Filmmaker
+Awards and Festival">
+<meta name="twitter:image:src" content="https://storage.googleapis.com/ff-storage-p01/festivals/logos/000
+/024/099/large/HFB1.jpg?1487210546">
+<meta name="twitter:domain" content="https://filmfreeway.com/">
+<meta property="fb:app_id" content="1744290195832806">
+<meta content="authenticity_token" name="csrf-param">
+<meta name="csrf-token">
+<title>Hollywood Independent Filmmaker Awards and Festival - FilmFreeway</title>
+<link rel="search" href="/opensearch.xml"
+type="application/opensearchdescription+xml" title="FilmFreeway Search">
+<link data-turbolinks-track="true" href="https://static-assets.filmfreeway.com/assets/vendor-009d20d464d5ea
+4aadc90e0f0ebc8787.css" media="all" rel="stylesheet">
+<link data-turbolinks-track="true" href="https://static-assets.filmfreeway.com/assets/v2_styles-77aa35c498094f
+81c5f78125cd745d0a.css" media="all" rel="stylesheet">
+<script type="text/javascript">
+var user_signed_in = false;
+var user_role = "public";
+var loader = [];
+</script>
+<script data-turbolinks-track="true" defer="defer" src="https://static-assets.filmfreeway.com/assets/public-f8277fcb13d17db89
+619ac8b8fdf8226.js"></script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=AW-969912153"></sc
+ript>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'AW-969912153');
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=explicit" async="" defer=""></script>
+<script data-module-class="UserLoginImprovementModule" data-module-props="{&quot;polyglotData&quot;:{&quot;locale&quot;:&qu
+ot;en&quot;,&quot;phrases&quot;:{&quot;_libraries.navigation.public.login_c
+orrection&quot;:&quot;Do you
+mean %{correction}?&quot;,&quot;_libraries.navigation.public.dismiss&quot;:
+&quot;Dismiss suggestion.&quot;}}}"></script>
+<link rel="canonical" href="https://filmfreeway.com/HollywoodIndependentFilmmakerAwards">
+<script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="tooltipster" src="https://static-assets.filmfreeway.com/assets/jquery.tooltipster-523fd79e
+66415f7e61311a143e3644ec.js"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="UserLoginImprovementModule" src="https://static-assets.filmfreeway.com/assets/modules/user_login_impro
+vement_module-23c7a96871e18d81ba520c11748cb4c1.js"></script><script
+type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vex" src="https://static-assets.filmfreeway.com/assets/vex-f5450fab3ef3fa557619
+7a3883911d6c.js"></script><script
+src="https://googleads.g.doubleclick.net/pagead/viewthroughconversion/96
+9912153/?random=1587093812475&amp;cv=9&amp;fst=1587093812475&
+amp;num=1&amp;bg=ffffff&amp;guid=ON&amp;resp=GooglemKTybQhCs
+O&amp;eid=376635471&amp;u_h=768&amp;u_w=1366&amp;u_ah=728&a
+mp;u_aw=1366&amp;u_cd=24&amp;u_his=3&amp;u_tz=330&amp;u_java=f
+alse&amp;u_nplug=3&amp;u_nmime=4&amp;gtm=2oa480&amp;sendb=1
+&amp;ig=1&amp;data=event%3Dgtag.config&amp;frm=0&amp;url=https%
+3A%2F%2Ffilmfreeway.com%2FHollywoodIndependentFilmmakerAwards&a
+mp;ref=https%3A%2F%2Ffilmfreeway.com%2Ffestivals&amp;tiba=Hollywoo
+d%20Independent%20Filmmaker%20Awards%20and%20Festival%20-%20Fil
+mFreeway&amp;hn=www.googleadservices.com&amp;async=1&amp;rfmt=
+3&amp;fmt=4"></script><script type="text/javascript" charset="utf-8" async="" data-requirecontext="_" data-requiremodule="vex_dialog" src="https://static-assets.filmfreeway.com/assets/vex.dialog-f46be6998533c
+b192005e4e4739bfaec.js"></script></head>
+<style>
+body{
+font-family: 'Roboto', sans-serif;
+background-color:#f2f2f2;
+overflow-x: scroll;
+}
+nav{
+box-shadow: 0 3px 8px rgba(0,0,0,.1) !important;
+width: 100%;
+}
+.nav-link{
+color: black !important;
+font-size: 17px !important;
+font-weight: 700 !important;
+margin-left: 20px !important;
+margin-right: 5px !important;
+}
+.nav-link:hover{
+color: grey !important;
+}
+.active{
+border-bottom: 2px solid darkgrey !important;
+}
+.form-control-borderless {
+border: none;
+}
+.form-control-borderless:hover, .form-control-borderless:active, .form-contro
+l-borderless:focus {
+border: none;
+outline: none;
+box-shadow: none;
+}
+.search{
+margin-bottom: 25px;
+}
+.card{
+padding: 10px !important;
+}
+.card:hover{
+border: 1px solid blue !important;
+}
+.form-inline {
+display: flex;
+flex-flow: row wrap;
+align-items: center;
+}
+.form-inline label {
+margin: 5px 10px 5px 0;
+}
+.form-inline input {
+vertical-align: middle;
+margin: 5px 10px 5px 0;
+padding: 10px;
+background-color: #fff;
+border: 1px solid #ddd;
+}
+.form-inline button {
+padding: 10px 20px;
+background-color: dodgerblue;
+border: 1px solid #ddd;
+color: white;
+cursor: pointer;
+}
+@media (max-width: 800px) {
+.form-inline input {
+margin: 10px 0;
+}
+.form-inline {
+flex-direction: column;
+align-items: stretch;
+}
+}
+.pagination {
+list-style-type: none;
+padding: 10px 0;
+display: inline-flex;
+margin: 4px auto;
+justify-content: space-between;
+box-sizing: border-box;
+}
+.pagination li {
+box-sizing: border-box;
+padding-right: 10px;
+}
+.pagination li a {
+box-sizing: border-box;
+background-color: #e2e6e6;
+padding: 8px;
+text-decoration: none;
+font-size: 12px;
+font-weight: bold;
+color: #616872;
+border-radius: 4px;
+}
+.pagination .next a, .pagination .prev a {
+text-transform: uppercase;
+font-size: 12px;
+}
+.pagination .currentpage a {
+background-color: #518acb;
+color: #fff;
+}
+.pagination .currentpage a:hover {
+background-color: #518acb;
+}
+.sticky {
+position: fixed;
+top: 0;
+width: 100%;
+z-index:4;
+}
+#m
+{
+z-index:4;
+}
+#avatar
+{
+border-radius:50%;
+width:270px;
+height:270px;
+z-index:5;
+position: absolute;
+left: 43%;
+top: 90px;
+}
+#ava
+{
+border-radius:50%;
+width:60px;
+height:60px;
+padding-top:3px;
+}
+</style></head>
+<body class=" festival-profile responsive" data-no-turbolink="">
+<?php include("link.php");
+$conn=new mysqli("localhost","root","","festival");
+$m=$_GET['fes'];
+?>
+<div class=" profile-hero
+profile-hero--has-nav
+profile-hero--has-cover " style=" margin:auto auto;">
+<div class="profile-hero__inner" style=" margin:auto auto;">
+<div class="profile-cover" style=" margin:auto auto;">
+<div class="profile-cover__inner" style=" margin:auto
+auto;">
+<img class="profile-cover__image" align="center" data-festival-cover-photo="" src= <?php
+$sql="select cov from brand where name='$m'";
+$r=$conn->query($sql);
+$a=$r->fetch_assoc();
+echo "'cover1/".$a['cov']."'>"; ?>
+</div>
+</div>
+<img id="avatar" src= <?php
+$sql="select upl from brand where name='$m'";
+$r=$conn->query($sql);
+$a=$r->fetch_assoc();
+echo "'cover1/".$a['upl']."'>"; ?>
+<div id="m">
+<nav role="navbar-item navigation"> <div class="profile-navbar
+hidden-xs hidden-sm">
+<div class="container">
+<div class="row">
+<div class="grid-1">
+<img id="ava" style="display:none" src=<?php
+$sql="select upl from brand where name='$m'";
+$r=$conn->query($sql);
+$a=$r->fetch_assoc();
+echo "'cover1/".$a['upl']."'>"; ?></div>
+<div class="grid-6">
+<ul class="profile-nav tab-navigation
+tab-navigation--profile tab-navigation--large" data-festival-navigation-links="profile">
+<li class="profile-nav__item
+profile-nav__item--about">
+<a href="#about">
+About
+</a>
+</li>
+<li class="profile-nav__item
+profile-nav__item--rules">
+<a href="#rule">
+Rules
+</a>
+</li>
+<li class="profile-nav__item
+profile-nav__item--reviews">
+<a href="#awards">
+Awards
+</a>
+</ul>
+</div>
+<div class="grid-5" align="right">
+<div class="navbar-item
+navbar-item--padded text-align-right">
+&nbsp;&nbsp;&nbsp;
+</div>
+</div></nav>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</br>
+<p id="about">
+<div
+style="padding-top:100px;padding-left:159px;padding-right:25px;float:left;wi
+dth:60%;text-align:justify">
+<div style="float:left;width:50%;">
+<img style="height:27%;width:100%" src=<?php
+$sql="select ima1 from brand where name='$m'";
+$r=$conn->query($sql);
+$a=$r->fetch_assoc();
+echo "'cover1/".$a['ima1']."'>"; ?><br>
+<br></div>
+<div style="float:left;width:50%;">
+<img style="height:27%;width:100%" src=<?php
+$sql="select ima2 from brand where name='$m'";
+$r=$conn->query($sql);
+$a=$r->fetch_assoc();
+echo "'cover1/".$a['ima2']."'>"; ?><br>
+<br></div>
+<br>
+<br>
+<?php include("link.php");
+$b="select brandd from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["brandd"];
+?>
+</section></p>
+<p id="rule">
+<section class="festival-information__section
+ProfileMiddleColumn-sectionRules"><br><b>Rules and Terms<hr
+style="width:25px;"></b>
+<?php include("link.php");
+$b="select rul from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["rul"];
+?>
+</section></p>
+<p id="awards">
+<section class="festival-information__section
+ProfileMiddleColumn-sectionRules"><br><b>Awards<hr
+style="width:25px;"></b>
+<?php include("link.php");
+$b="select branda from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["branda"];
+?><br>
+<br>
+<br></section></p>
+<div class="Section-component">
+<div aria-level="5" class="Section-componentTitle"
+role="heading">
+Feedback Form
+</div><form action="" method="POST">
+<ul class="ProfileCategories">
+<li><b>Email id</b></li><li><input type="text" class="form-control"></li><br>
+<li><b>Comment</b></li><li><textarea cols="43"
+rows="3"></textarea></li><br>
+<li><a class="btn btn-success btn-submit-now span-full
+this-is-the-submit-button" style="width:150px;float:right;" name="sub">Submit </a></li>
+</ul>
+</div> </div>
+<div
+style="padding-right:100px;padding-top:100px;padding-right:100px;float:rig
+ht;width:23%;">
+<b>Event Type</b>
+<br> <?php include("link.php");
+$b="select typ from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+if(preg_match("#film#",$a['typ']))
+echo "<li>"."Traditional Wear"."</li>";
+if(preg_match("#video#",$a['typ']))
+echo "<li>"."Makeup"."</li>";
+if(preg_match("#music#",$a['typ']))
+echo "<li>"."Western Clothes"."</li>";
+if(preg_match("#online#",$a['typ']))
+echo "<li>"."Accessories"."</li>";
+?>
+<br>
+<hr>
+<b>Years Running</b>
+<br> <?php include("link.php");
+$b="select yea from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["yea"]." years";
+?> <br>
+<hr>
+<br>
+<b>Contact</b><br><br>
+<span class="icon icon-social-email"><a href= mailto:<?php
+include("link.php");
+$b="select ema from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["ema"];
+?> >&nbsp;&nbsp;&nbsp;Email</span></a><br><br>
+<span class="icon icon-telephone"><a href="tel:403-209-4957"
+rel="nofollow" >&nbsp;&nbsp;&nbsp;<?php include("link.php");
+$b="select pho from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["pho"];
+?> </span><br></a><br>
+<span class="icon icon-pin"><a
+href="https://www.google.com/maps/place/ <?php include("link.php");
+$b="select addr from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["addr"];
+?> </a><br><br>
+<span class="icon icon-globe"><a href= <?php include("link.php");
+$b="select web from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["web"];
+?> >&nbsp;&nbsp;&nbsp;Website</span></a><br><br>
+<span class="icon icon-social-facebook"><a href=<?php include("link.php");
+$b="select fac from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["fac"];
+?> >&nbsp;&nbsp;&nbsp;&nbsp;Facebook</span></a><br><br>
+<span class="icon icon-social-twitter"><a href=<?php include("link.php");
+$b="select ins from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["ins"];
+?> >&nbsp;&nbsp;&nbsp;Twitter</span></a><br><br>
+<span class="icon icon-social-instagram"><a href=<?php
+include("link.php");
+$b="select twi from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["twi"];
+?> >&nbsp;&nbsp;&nbsp;Instagram</span></a><br><br>
+<hr>
+<br>
+<b>Venues</b>
+<a class="ProfileFestival-sidebarMapTileContainer" href="https://www.google.com/maps/place/ <?php include("link.php");
+$b="select whe from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["whe"];
+?> target="_blank">
+<span class="ProfileFestival-sidebarMapTileInnerText">
+View on Google Maps
+</span>
+</a>
+<br>
+<?php include("link.php");
+$b="select whe from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["whe"];
+?><br><BR><hr>
+<br>
+<b>Festival Organizer Name</b><br>
+<?php include("link.php");
+$b="select brando from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["brando"];
+?><br>
+<?php include("link.php");
+$b="select add1 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add1"];
+?><br>
+<?php include("link.php");
+$b="select add2 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add2"];
+?><br>
+<?php include("link.php");
+$b="select add3 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add3"];
+?><br>
+<?php include("link.php");
+$b="select add4 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add4"]."<br>";
+$b="select add5 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add5"]."<br>";
+$b="select add6 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add6"]."<br>";
+$b="select add7 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add7"]."<br>";
+$b="select add8 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add8"]."<br>";
+$b="select add9 from brand where name='$m'";
+$c=$conn->query($b);
+$a=$c->fetch_assoc();
+echo $a["add9"];
+?><br>
+</div>
+<script>
+window.onscroll = function() {myFunction()};
+var navbar = document.getElementById("m");
+var d=document.getElementById("avatar");
+var sticky = navbar.offsetTop;
+var e=document.getElementById("ava");
+function myFunction() {
+if (window.pageYOffset >= sticky) {
+navbar.classList.add("sticky")
+d.style.display="none";
+e.style.display="block";
+} else {
+navbar.classList.remove("sticky");
+d.style.display="block";
+e.style.display="none";
+}
+}
+</script>
+</body>
+</html>
