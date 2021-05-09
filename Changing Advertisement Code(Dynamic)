@@ -1,0 +1,55 @@
+<html>
+<head>
+</head>
+<body>
+<?php
+header("Refresh: 2;");
+$a=round(time(),3);
+$c=$a%10;
+if($c==1)
+{
+echo "<a href='kurtis.php' target='frame'><img src='c1.jpg' width='100%' height='100%'></a>";
+}
+elseif($c==2)
+{
+echo "<a href='kurtis.php' target='frame'><img src='c4.jpg' width='100%' height='100%'></a>";
+}
+elseif($c==3)
+{
+echo "<a href='clothes.php' target='frame'><img src='clothes3.png' width='100%' height='100%'>";
+}
+elseif($c==4)
+{
+echo "<a href='kurtis.php' target='frame'><img src='c3.jpg' width='100%' height='100%'>";
+}
+elseif($c==5)
+{
+echo "<a href='access.php' target='frame'><img src='c31.jpg' width='100%' height='100%'>";
+}
+elseif($c==6)
+{
+echo "<a href='clothes.php' target='frame'><img src='clothes4.jpg' width='100%' height='100%'>";
+}
+elseif($c==7)
+{
+echo "<a href='access.html' target='frame'><img src='c61.jpg' width='100%' height='100%'>";
+}
+elseif($c==8)
+{
+echo "<a href='access.php' target='frame'><img src='c11.jpg' width='100%' height='100%'>";
+}
+elseif($c==9)
+{
+echo "<a href='access.php' target='frame'><img src='c21.jpg' width='100%' height='100%'>";
+}
+elseif($c==0)
+{
+echo "<a href='access.php' target='frame'><img src='c41.jpg' width='100%' height='100%'>";
+}
+else
+{
+echo "<a href='clothes.php' target='frame'><img src='clothes4.jpg' width='100%' height='100%'>";
+}
+?>
+</body>
+</html>
